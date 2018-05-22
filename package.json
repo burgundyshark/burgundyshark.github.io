@@ -4,6 +4,7 @@
   "description": "A business card of a website",
   "main": "index.js",
   "scripts": {
+    "dev": "nuxt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/burgundyshark/burgundyshark.github.io/issues"
   },
-  "homepage": "https://github.com/burgundyshark/burgundyshark.github.io#readme"
+  "homepage": "https://github.com/burgundyshark/burgundyshark.github.io#readme",
+  "dependencies": {
+    "nuxt": "^1.4.0"
+  }
 }
