@@ -4,7 +4,7 @@
   "description": "A business card of a website",
   "main": "index.js",
   "scripts": {
-    "dev": "nuxt",
+    "start": "nuxt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
