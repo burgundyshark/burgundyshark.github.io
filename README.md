@@ -1,3 +1,3 @@
 # burgundyshark.github.io
 
-Hello, world!
+`npm i` to install dependencies, `npm start` to run dev server

@@ -1,6 +1,13 @@
 <template>
   <div id="wrapper">
     <Nav />
+    <div class="content">
+      <h1>Development &amp; Design</h1>
+      <h4>I Make Pretty Web Things</h4>
+    </div>
+    <footer>
+
+    </footer>
   </div>
 </template>
 <script>
@@ -18,7 +25,6 @@
       };
     },
     mounted() {
-      console.log('mounted called', window)
       let that = this;
       terra.registerCreature(plant({ color: [116, 60, 99] }));
       terra.registerCreature(brute({ color: [224, 90, 179] }));
@@ -33,21 +39,23 @@
       });
     },
     methods: {
-      init(window) {
+      init(window, that) {
         console.log('init called! ', window, this.terrarium);
         const width = window.innerWidth;
         const height = window.innerHeight;
         const cellSize = Math.max(width, height) / 75;
 
-        this.terrarium ? this.terrarium.destroy() : this.terrarium = new terra.Terrarium(
-          Math.ceil(width / cellSize), 
-          Math.ceil(height / cellSize), 
-          { cellSize, }//trails:true, background:[63, 33, 55] }
-        );
+        if (this.terrarium) {
+          this.terrarium.stop();
+        } else {
+          this.terrarium = new terra.Terrarium(
+            Math.ceil(width / cellSize), 
+            Math.ceil(height / cellSize), 
+            { cellSize }
+          );
+        }        
         
-        
-        
-        this.terrarium.grid = this.terrarium.makeGridWithDistribution([['plant', 50], ['brute', 5], ['bully', 50]]);
+        this.terrarium.grid = this.terrarium.makeGridWithDistribution([['plant', 50], ['brute', 5], ['bully', 10]]);
         this.terrarium.animate();
       }
     }
@@ -57,13 +65,8 @@
   body {
     overflow: hidden;
     background: rgb(63, 33, 55);
-    //color: rgb(155,128,155);
-    //color: rgb(153, 108, 153);
-    //color: rgb(141, 94, 141);
     color: rgb(116, 60, 99);
     padding: 0;
-    //color: rgb(231,187,192);
-    //color: rgb(212, 94, 203);
     color: rgb(224, 90, 179);
     margin: 0;
   }
@@ -74,8 +77,21 @@
     height: 100vh;
     overflow: scroll;
   }
-  h1 {
+  .content {
     color: white;
+
+    h1 {
+      padding-top:20vh;
+      font-size: 400%;
+      text-align: center;
+    }
+    h4 {
+      font-weight:100;
+      text-transform:uppercase;
+      letter-spacing: 1.5vw;
+      font-size: 100%;
+      text-align: center;
+    }
   }
   canvas {
     opacity: 0.5;
