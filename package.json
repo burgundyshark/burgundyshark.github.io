@@ -4,7 +4,7 @@
   "description": "A business card of a website",
   "main": "index.js",
   "scripts": {
-    "start": "nuxt",
+    "start": "HOST=127.0.0.1 nuxt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/burgundyshark/burgundyshark.github.io#readme",
   "dependencies": {
-    "nuxt": "^1.4.0"
+    "node-sass": "^4.9.0",
+    "nuxt": "^1.4.0",
+    "sass-loader": "^7.0.1",
+    "vue-style-loader": "^4.1.0"
   }
 }

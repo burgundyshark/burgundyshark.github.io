@@ -1,13 +1,15 @@
 <template>
   <div id="wrapper">
-    <h1>Hello world!</h1>
+    <Nav />
   </div>
 </template>
 <script>
   import { plant, brute, bully } from '~/assets/creatures';
+  import Nav from '../components/nav';
 
   export default {
     head: { script: [{ src: '//cdn.jsdelivr.net/terra/latest/mainfile'}] },
+    components: { Nav },
     data() {
       return {
         window: [0, 0],
@@ -65,7 +67,11 @@
     height: 100vh;
     overflow: scroll;
   }
+  h1 {
+    color: white;
+  }
   canvas {
+    opacity: 0.8;
     z-index: 1;
     position: absolute;
     top: 50%;
