@@ -20,11 +20,11 @@
     mounted() {
       console.log('mounted called', window)
       let that = this;
-      terra.registerCreature(plant);
-      terra.registerCreature(brute);
-      terra.registerCreature(bully);
-      this.init(window)
-      this.$nextTick(function() {
+      terra.registerCreature(plant({ color: [155,128,155] }));
+      terra.registerCreature(brute({ color: [231,187,192] }));
+      terra.registerCreature(bully({ color: [141,231,233] }));
+      this.init(window);
+      this.$nextTick(() => {
         window.addEventListener('resize', function(e) {
           clearTimeout(that.initTimeout);
           that.initTimeout = setTimeout(that.init(window), 300);
@@ -34,7 +34,7 @@
     },
     methods: {
       init(window) {
-        console.log('init called! ', window, this.terrarium)
+        console.log('init called! ', window, this.terrarium);
         const width = window.innerWidth;
         const height = window.innerHeight;
         const cellSize = Math.max(width, height) / 75;
@@ -42,12 +42,12 @@
         this.terrarium ? this.terrarium.destroy() : this.terrarium = new terra.Terrarium(
           Math.ceil(width / cellSize), 
           Math.ceil(height / cellSize), 
-          { cellSize: cellSize }
+          { cellSize }
         );
         
         
         
-        this.terrarium.grid = this.terrarium.makeGridWithDistribution([['plant', 50], ['brute', 5], ['bully', 5]]);
+        this.terrarium.grid = this.terrarium.makeGridWithDistribution([['plant', 10], ['brute', 5], ['bully', 5]]);
         this.terrarium.animate();
       }
     }
@@ -56,7 +56,7 @@
 <style>
   body {
     overflow: hidden;
-    background: #333;
+    background: rgb(63, 33, 55);
     padding: 0;
     margin: 0;
   }
@@ -71,7 +71,7 @@
     color: white;
   }
   canvas {
-    opacity: 0.8;
+    opacity: 0.5;
     z-index: 1;
     position: absolute;
     top: 50%;
